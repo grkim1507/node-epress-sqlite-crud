@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My page</title>
+</head>
+<body>
+    <h1>댓글목록</h1>
+    <ul>
+    <% for (comment of comments) {%>
+        <li><%=comment.comment%> </li>
+        <form action="/update/<%= comment.id%>" method="post">
+            <input type="text" id="lname" name="comment">
+            <input type="submit" value="Rename">
+        </form>
+        <form action="/delete/<%= comment.id%>" method="post">
+            <input type="submit" value="Delete">
+        </form>
+        <%}%> 
+    </ul>
+
+    <hr>
+    <form action="/create" method="post">
+        <input type="text" id="lname" name="comment"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
